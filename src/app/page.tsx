@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Camera, Image as ImageIcon, Calendar, MapPin, StickyNote, FolderPlus, Folder, Edit2, Trash2 } from 'lucide-react';
 
 interface Album {
   id: string;
@@ -99,7 +98,6 @@ export default function Home() {
   const deleteAlbum = (albumId: string) => {
     setAlbums(prev => prev.filter(album => album.id !== albumId));
     setNotes(prev => prev.filter(note => note.albumId !== albumId));
-    setImages(prev => prev.filter(image => image.albumId !== albumId));
     setLocations(prev => prev.filter(location => location.albumId !== albumId));
     if (selectedAlbum?.id === albumId) {
       setSelectedAlbum(null);
@@ -173,27 +171,26 @@ export default function Home() {
 
   if (!selectedAlbum) {
     return (
-      <div className="min-h-screen bg-gray-100 p-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
+      <div className="min-h-screen p-8 bg-gray-100">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center justify-between mb-8">
             <h1 className="text-3xl font-bold text-gray-900">Mis Álbumes</h1>
             <button
               onClick={() => setIsCreatingAlbum(true)}
               className="bg-[#00cccc] text-white px-4 py-2 rounded-lg hover:bg-[#00b3b3] flex items-center"
             >
-              <FolderPlus className="w-5 h-5 mr-2" />
               Crear Álbum
             </button>
           </div>
 
           {isCreatingAlbum && (
-            <div className="mb-8 bg-white p-6 rounded-lg shadow">
+            <div className="p-6 mb-8 bg-white rounded-lg shadow">
               <input
                 type="text"
                 value={newAlbumName}
                 onChange={(e) => setNewAlbumName(e.target.value)}
                 placeholder="Nombre del álbum"
-                className="w-full p-2 border rounded-lg mb-4"
+                className="w-full p-2 mb-4 border rounded-lg"
               />
               <div className="flex space-x-4">
                 <button
@@ -204,7 +201,7 @@ export default function Home() {
                 </button>
                 <button
                   onClick={() => setIsCreatingAlbum(false)}
-                  className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400"
+                  className="px-4 py-2 text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400"
                 >
                   Cancelar
                 </button>
@@ -212,13 +209,12 @@ export default function Home() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {albums.map(album => (
-              <div key={album.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div key={album.id} className="overflow-hidden bg-white rounded-lg shadow-lg">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center">
-                      <Folder className="w-6 h-6 text-[#00cccc] mr-3" />
                       <h2 className="text-xl font-semibold text-gray-900">{album.name}</h2>
                     </div>
                     <div className="flex space-x-2">
@@ -226,13 +222,11 @@ export default function Home() {
                         onClick={() => setSelectedAlbum(album)}
                         className="text-[#00cccc] hover:text-[#00b3b3]"
                       >
-                        <Edit2 className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => deleteAlbum(album.id)}
                         className="text-red-500 hover:text-red-600"
                       >
-                        <Trash2 className="w-5 h-5" />
                       </button>
                     </div>
                   </div>
@@ -243,7 +237,7 @@ export default function Home() {
                       day: 'numeric'
                     })}
                   </p>
-                  <div className="mt-4 flex space-x-2">
+                  <div className="flex mt-4 space-x-2">
                     <div className="text-sm text-gray-600">
                       {notes.filter(note => note.albumId === album.id).length} notas
                     </div>
@@ -269,12 +263,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="px-4 mx-auto max-w-7xl">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <button
                 onClick={() => setSelectedAlbum(null)}
-                className="text-gray-500 hover:text-gray-700 mr-4"
+                className="mr-4 text-gray-500 hover:text-gray-700"
               >
                 ← Volver a Álbumes
               </button>
@@ -289,7 +283,6 @@ export default function Home() {
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                 }`}
               >
-                <StickyNote className="w-5 h-5 mr-2" />
                 Notas
               </button>
               <button
@@ -300,7 +293,6 @@ export default function Home() {
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                 }`}
               >
-                <ImageIcon className="w-5 h-5 mr-2" />
                 Fotos
               </button>
               <button
@@ -311,7 +303,6 @@ export default function Home() {
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                 }`}
               >
-                <Calendar className="w-5 h-5 mr-2" />
                 Calendario
               </button>
               <button
@@ -322,7 +313,6 @@ export default function Home() {
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                 }`}
               >
-                <MapPin className="w-5 h-5 mr-2" />
                 Mapa
               </button>
             </div>
@@ -330,9 +320,9 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {activeTab === 'notes' && (
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="p-6 bg-white rounded-lg shadow">
             <div className="mb-4">
               <textarea
                 value={newNote}
@@ -352,9 +342,9 @@ export default function Home() {
               {notes
                 .filter(note => note.albumId === selectedAlbum.id)
                 .map(note => (
-                  <div key={note.id} className="bg-gray-50 p-4 rounded-lg">
+                  <div key={note.id} className="p-4 rounded-lg bg-gray-50">
                     <p className="text-gray-800">{note.content}</p>
-                    <div className="flex justify-between items-center mt-2">
+                    <div className="flex items-center justify-between mt-2">
                       <span className="text-sm text-gray-500">
                         {new Date(note.createdAt).toLocaleDateString('es-ES', {
                           year: 'numeric',
@@ -378,7 +368,7 @@ export default function Home() {
         )}
 
         {activeTab === 'photos' && (
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="p-6 bg-white rounded-lg shadow">
             <div className="mb-4">
               <label className="block mb-2">
                 <span className="sr-only">Subir</span>
@@ -395,7 +385,7 @@ export default function Home() {
                 />
               </label>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {images
                 .filter(img => img.albumId === selectedAlbum.id)
                 .map(img => (
@@ -403,11 +393,11 @@ export default function Home() {
                     <img
                       src={img.base64}
                       alt={`Imagen ${img.id}`}
-                      className="w-full h-48 object-cover rounded-lg"
+                      className="object-cover w-full h-48 rounded-lg"
                     />
                     <button
                       onClick={() => deleteImage(img.id)}
-                      className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600"
+                      className="absolute p-1 text-white bg-red-500 rounded-full top-2 right-2 hover:bg-red-600"
                     >
                       <span className="sr-only">Eliminar</span>
                       ×
@@ -419,12 +409,12 @@ export default function Home() {
         )}
 
         {activeTab === 'calendar' && (
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="p-6 bg-white rounded-lg shadow">
             <input
               type="date"
               value={selectedDate.toISOString().split('T')[0]}
               onChange={(e) => setSelectedDate(new Date(e.target.value))}
-              className="border rounded-lg p-2"
+              className="p-2 border rounded-lg"
             />
             <div className="mt-4">
               <h3 className="text-lg font-semibold">
@@ -439,10 +429,10 @@ export default function Home() {
         )}
 
         {activeTab === 'map' && (
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="p-6 bg-white rounded-lg shadow">
             <div className="mb-6">
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Nombre del lugar
                 </label>
                 <input
@@ -454,7 +444,7 @@ export default function Home() {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   URL de Google Maps
                 </label>
                 <input
@@ -477,8 +467,8 @@ export default function Home() {
               {locations
                 .filter(location => location.albumId === selectedAlbum.id)
                 .map(location => (
-                  <div key={location.id} className="bg-gray-50 rounded-lg overflow-hidden">
-                    <div className="p-4 flex justify-between items-center">
+                  <div key={location.id} className="overflow-hidden rounded-lg bg-gray-50">
+                    <div className="flex items-center justify-between p-4">
                       <h3 className="text-lg font-semibold text-gray-900">{location.name}</h3>
                       <button
                         onClick={() => deleteLocation(location.id)}
