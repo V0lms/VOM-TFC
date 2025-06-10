@@ -11,7 +11,7 @@ export async function hashPassword(password: string) {
   return await bcrypt.hash(password, 10)
 }
 
-// Función para obtener el usuario actual con mejor manejo de errores
+// Función para obtener el usuario actual
 export async function getCurrentUser() {
   try {
     // En el servidor, usamos cookies() de next/headers
@@ -43,7 +43,7 @@ export async function getCurrentUser() {
     else {
       const userEmail = document.cookie
         .split("; ")
-        .find((row) => row.startsWith("user_email="))
+        .find((row) => row.startsWith("user_email_client="))
         ?.split("=")[1]
 
       if (!userEmail) {
@@ -58,19 +58,11 @@ export async function getCurrentUser() {
     }
   } catch (error) {
     console.error("Error al obtener usuario actual:", error)
-    // En lugar de devolver null, podemos devolver un usuario de demostración si estamos en modo demo
-    if (!process.env.DATABASE_URL && !process.env.POSTGRES_URL && !process.env.POSTGRES_PRISMA_URL) {
-      console.log("Usando usuario de demostración debido al error")
-      return {
-        email: "demo@ejemplo.com",
-        name: "Usuario Demo",
-      }
-    }
     return null
   }
 }
 
-// Función para establecer la cookie de sesión (MODIFICADA para ser accesible desde el cliente)
+// Función para establecer la cookie de sesión
 export async function setUserCookie(email: string) {
   if (typeof window === "undefined") {
     // En el servidor, establecemos tanto httpOnly como una cookie accesible desde el cliente
@@ -116,7 +108,7 @@ export async function clearUserCookie() {
   }
 }
 
-// Nueva función para obtener el email del usuario desde el cliente
+// Función para obtener el email del usuario desde el cliente
 export function getUserEmailFromClient(): string | null {
   if (typeof window === "undefined") return null
 
