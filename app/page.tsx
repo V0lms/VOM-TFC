@@ -6,7 +6,7 @@ import { DEMO_MODE } from "@/lib/db"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-[10vh] flex items-center border-b">
+      <header className="px-4 lg:px-6 h-[5vh] flex items-center border-b">
         <Link className="flex justify-center items-center" href="/">
           <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
         </Link>
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full h-[20vh] py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section className="w-full h-[30vh] py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 items-start lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-4 text-center">
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col h-[10vh] gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+      <footer className="flex flex-col h-[5vh] gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
           © 2025 Nube viajes - tfc VOM. Todos los derechos reservados.
         </p>
