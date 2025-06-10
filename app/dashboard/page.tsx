@@ -13,23 +13,23 @@ export default async function DashboardPage() {
     if (DEMO_MODE) {
       return (
         <div className="flex flex-col min-h-screen">
-          <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-            <Link className="flex items-center justify-center" href="/">
-              <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
+          <header className="flex items-center px-4 h-14 border-b lg:px-6">
+            <Link className="flex justify-center items-center" href="/">
+              <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
             </Link>
           </header>
-          <main className="flex-1 p-4 md:p-6 flex items-center justify-center">
-            <div className="text-center max-w-lg p-6 bg-white rounded-lg border">
-              <Database className="h-16 w-16 text-red-500 mx-auto mb-4" />
-              <h1 className="text-2xl font-bold mb-4">Base de Datos No Configurada</h1>
-              <p className="text-gray-600 mb-6">
+          <main className="flex flex-1 justify-center items-center p-4 md:p-6">
+            <div className="p-6 max-w-lg text-center bg-white rounded-lg border">
+              <Database className="mx-auto mb-4 w-16 h-16 text-red-500" />
+              <h1 className="mb-4 text-2xl font-bold">Base de Datos No Configurada</h1>
+              <p className="mb-6 text-gray-600">
                 Para usar la aplicación, necesitas configurar una base de datos. Te recomendamos usar Neon para una
                 configuración rápida y gratuita.
               </p>
               <div className="space-y-4">
-                <div className="bg-blue-50 border border-blue-200 rounded p-4 text-left">
-                  <h3 className="font-medium text-blue-900 mb-2">Pasos para configurar:</h3>
-                  <ol className="text-sm text-blue-800 space-y-1 list-decimal list-inside">
+                <div className="p-4 text-left bg-blue-50 rounded border border-blue-200">
+                  <h3 className="mb-2 font-medium text-blue-900">Pasos para configurar:</h3>
+                  <ol className="space-y-1 text-sm list-decimal list-inside text-blue-800">
                     <li>Crea una cuenta en Neon (gratis)</li>
                     <li>Crea una nueva base de datos</li>
                     <li>Copia la URL de conexión</li>
@@ -42,10 +42,10 @@ export default async function DashboardPage() {
                     href="https://neon.tech"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                    className="inline-flex justify-center items-center py-2 px-4 text-white bg-green-600 rounded transition-colors hover:bg-green-700"
                   >
                     Ir a Neon
-                    <ExternalLink className="ml-2 h-4 w-4" />
+                    <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                   <Link href="/">
                     <Button variant="outline" className="w-full">
@@ -67,22 +67,22 @@ export default async function DashboardPage() {
     if (!user) {
       return (
         <div className="flex flex-col min-h-screen">
-          <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-            <Link className="flex items-center justify-center" href="/">
-              <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
+          <header className="flex items-center px-4 h-14 border-b lg:px-6">
+            <Link className="flex justify-center items-center" href="/">
+              <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
             </Link>
-            <div className="ml-auto flex items-center gap-2">
-              <div className="flex items-center gap-1 text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                <Wifi className="h-3 w-3" />
+            <div className="flex gap-2 items-center ml-auto">
+              <div className="flex gap-1 items-center py-1 px-2 text-xs text-green-800 bg-green-100 rounded">
+                <Wifi className="w-3 h-3" />
                 BD Conectada
               </div>
             </div>
           </header>
-          <main className="flex-1 p-4 md:p-6 flex items-center justify-center">
-            <div className="text-center max-w-md p-6 bg-white rounded-lg border">
-              <AlertCircle className="h-12 w-12 text-amber-500 mx-auto mb-4" />
-              <h1 className="text-2xl font-bold mb-4">Sesión no iniciada</h1>
-              <p className="text-gray-600 mb-6">Necesitas iniciar sesión para acceder al panel de control.</p>
+          <main className="flex flex-1 justify-center items-center p-4 md:p-6">
+            <div className="p-6 max-w-md text-center bg-white rounded-lg border">
+              <AlertCircle className="mx-auto mb-4 w-12 h-12 text-amber-500" />
+              <h1 className="mb-4 text-2xl font-bold">Sesión no iniciada</h1>
+              <p className="mb-6 text-gray-600">Necesitas iniciar sesión para acceder al panel de control.</p>
               <div className="flex flex-col gap-3">
                 <Link href="/login">
                   <Button className="w-full">Iniciar sesión</Button>
@@ -121,51 +121,51 @@ export default async function DashboardPage() {
 
     return (
       <div className="flex flex-col min-h-screen">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-          <Link className="flex items-center justify-center" href="/">
-            <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
+        <header className="flex items-center px-4 h-14 border-b lg:px-6">
+          <Link className="flex justify-center items-center" href="/">
+            <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
           </Link>
-          <div className="ml-auto flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                <Wifi className="h-3 w-3" />
+          <div className="flex gap-4 items-center ml-auto">
+            <div className="flex gap-2 items-center">
+              <div className="flex gap-1 items-center py-1 px-2 text-xs text-green-800 bg-green-100 rounded">
+                <Wifi className="w-3 h-3" />
                 BD Conectada
               </div>
             </div>
             <p className="text-sm font-medium">Hola, {user.name}</p>
             <form action={logoutUser}>
               <Button variant="ghost" size="sm" type="submit">
-                <LogOut className="h-4 w-4 mr-2" />
+                <LogOut className="mr-2 w-4 h-4" />
                 Cerrar Sesión
               </Button>
             </form>
           </div>
         </header>
         <main className="flex-1 p-4 md:p-6">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">Tus Viajes</h1>
             <CreateAlbumModal userEmail={user.email}>
               <Button>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Nuevo Viaje
               </Button>
             </CreateAlbumModal>
           </div>
 
-          {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
+          {error && <div className="py-3 px-4 mb-4 text-red-700 bg-red-100 rounded border border-red-400">{error}</div>}
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {albums.length > 0 ? (
               albums.map((album) => (
                 <div
                   key={album.name}
-                  className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="p-4 bg-white rounded-lg border shadow-sm transition-shadow hover:shadow-md"
                 >
                   <div className="flex items-center mb-2">
-                    <Folder className="h-5 w-5 mr-2 text-teal-500" />
+                    <Folder className="mr-2 w-5 h-5 text-teal-500" />
                     <h3 className="font-medium">{album.name}</h3>
                   </div>
-                  {album.description && <p className="text-sm text-gray-600 mb-2">{album.description}</p>}
+                  {album.description && <p className="mb-2 text-sm text-gray-600">{album.description}</p>}
                   <p className="text-xs text-gray-500">Creado el {new Date(album.date).toLocaleDateString()}</p>
                   <div className="mt-3">
                     <Link href={`/viaje/${encodeURIComponent(album.name)}`} className="w-full">
@@ -177,13 +177,13 @@ export default async function DashboardPage() {
                 </div>
               ))
             ) : (
-              <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-                <Folder className="h-12 w-12 text-teal-500 mb-4" />
+              <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+                <Folder className="mb-4 w-12 h-12 text-teal-500" />
                 <h3 className="text-lg font-medium">Aún no hay viajes</h3>
-                <p className="text-sm text-gray-500 mt-1">Crea tu primer viaje para comenzar.</p>
+                <p className="mt-1 text-sm text-gray-500">Crea tu primer viaje para comenzar.</p>
                 <CreateAlbumModal userEmail={user.email}>
                   <Button className="mt-4">
-                    <Plus className="h-4 w-4 mr-2" />
+                    <Plus className="mr-2 w-4 h-4" />
                     Crear Viaje
                   </Button>
                 </CreateAlbumModal>
@@ -198,16 +198,16 @@ export default async function DashboardPage() {
 
     return (
       <div className="flex flex-col min-h-screen">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-          <Link className="flex items-center justify-center" href="/">
-            <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
+        <header className="flex items-center px-4 h-14 border-b lg:px-6">
+          <Link className="flex justify-center items-center" href="/">
+            <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
           </Link>
         </header>
-        <main className="flex-1 p-4 md:p-6 flex items-center justify-center">
-          <div className="text-center max-w-md p-6 bg-white rounded-lg border">
-            <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold mb-4">Error en el Dashboard</h1>
-            <p className="text-gray-600 mb-6">
+        <main className="flex flex-1 justify-center items-center p-4 md:p-6">
+          <div className="p-6 max-w-md text-center bg-white rounded-lg border">
+            <AlertCircle className="mx-auto mb-4 w-12 h-12 text-red-500" />
+            <h1 className="mb-4 text-2xl font-bold">Error en el Dashboard</h1>
+            <p className="mb-6 text-gray-600">
               Ha ocurrido un error al cargar el dashboard. Por favor, inténtalo de nuevo.
             </p>
             <div className="flex flex-col gap-3">

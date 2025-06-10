@@ -342,8 +342,8 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
   if (loading) {
     return (
       <div className="flex justify-center items-center p-8">
-        <div className="flex flex-col items-center gap-2">
-          <Loader2 className="h-8 w-8 animate-spin text-teal-500" />
+        <div className="flex flex-col gap-2 items-center">
+          <Loader2 className="w-8 h-8 text-teal-500 animate-spin" />
           <p className="text-sm text-gray-500">Cargando contenido del viaje...</p>
         </div>
       </div>
@@ -352,7 +352,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
 
   if (error) {
     return (
-      <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+      <div className="p-4 bg-red-50 rounded-md border border-red-200">
         <p className="text-red-700">{error}</p>
         <Button onClick={loadData} className="mt-2">
           Intentar de nuevo
@@ -363,7 +363,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex justify-between items-center mb-4">
         <TabsList>
           <TabsTrigger value="photos" className="relative">
             Fotos
@@ -391,7 +391,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             size="sm"
             onClick={refreshData}
             disabled={isRefreshing}
-            className="flex items-center gap-1"
+            className="flex gap-1 items-center"
           >
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
             {isRefreshing ? "Actualizando..." : "Actualizar"}
@@ -401,7 +401,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             <Dialog open={isAddPhotoDialogOpen} onOpenChange={setIsAddPhotoDialogOpen}>
               <DialogTrigger asChild>
                 <Button>
-                  <Camera className="h-4 w-4 mr-2" />
+                  <Camera className="mr-2 w-4 h-4" />
                   Añadir Foto
                 </Button>
               </DialogTrigger>
@@ -425,7 +425,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                     <Button type="submit" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -442,7 +442,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             <Dialog open={isAddNoteDialogOpen} onOpenChange={setIsAddNoteDialogOpen}>
               <DialogTrigger asChild>
                 <Button>
-                  <PenSquare className="h-4 w-4 mr-2" />
+                  <PenSquare className="mr-2 w-4 h-4" />
                   Añadir Nota
                 </Button>
               </DialogTrigger>
@@ -466,7 +466,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                     <Button type="submit" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -483,7 +483,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             <Dialog open={isAddPlaceDialogOpen} onOpenChange={setIsAddPlaceDialogOpen}>
               <DialogTrigger asChild>
                 <Button>
-                  <MapPin className="h-4 w-4 mr-2" />
+                  <MapPin className="mr-2 w-4 h-4" />
                   Añadir Lugar
                 </Button>
               </DialogTrigger>
@@ -507,7 +507,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                     <Button type="submit" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -532,14 +532,14 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                     <img
                       src={photo.base64 || "/placeholder.svg"}
                       alt={photo.title}
-                      className="w-full h-full object-cover"
+                      className="object-cover w-full h-full"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                      <Camera className="h-8 w-8 text-gray-400" />
+                    <div className="flex justify-center items-center w-full h-full bg-gray-100">
+                      <Camera className="w-8 h-8 text-gray-400" />
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar foto?"
                       description={`¿Estás seguro de que deseas eliminar la foto "${photo.title}"?`}
@@ -552,7 +552,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                         size="icon"
                         className="h-8 w-8 rounded-full bg-black/50 hover:bg-black/70"
                       >
-                        <Trash2 className="h-4 w-4" />
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
@@ -563,12 +563,12 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <Camera className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <Camera className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay fotos</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primera foto a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primera foto a este álbum.</p>
               <Button className="mt-4" onClick={() => setIsAddPhotoDialogOpen(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Foto
               </Button>
             </div>
@@ -582,7 +582,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             notes.map((note) => (
               <Card key={note.id} className="group">
                 <CardHeader className="relative">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar nota?"
                       description={`¿Estás seguro de que deseas eliminar la nota "${note.title}"?`}
@@ -590,26 +590,26 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                       variant="ghost"
                       size="icon"
                     >
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                        <Trash2 className="h-4 w-4" />
+                      <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
                   <CardTitle>{note.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{note.content}</p>
+                  <p className="text-gray-700 whitespace-pre-line dark:text-gray-300">{note.content}</p>
                 </CardContent>
                 <CardFooter className="text-xs text-gray-500">{new Date(note.date).toLocaleDateString()}</CardFooter>
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <PenSquare className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <PenSquare className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay notas</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primera nota a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primera nota a este álbum.</p>
               <Button className="mt-4" onClick={() => setIsAddNoteDialogOpen(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Nota
               </Button>
             </div>
@@ -623,7 +623,7 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
             places.map((place) => (
               <Card key={place.name} className="group">
                 <CardHeader className="relative">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar lugar?"
                       description={`¿Estás seguro de que deseas eliminar el lugar "${place.name}"?`}
@@ -631,13 +631,13 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                       variant="ghost"
                       size="icon"
                     >
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                        <Trash2 className="h-4 w-4" />
+                      <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
                   <CardTitle className="flex items-center">
-                    <MapPin className="h-4 w-4 mr-2 text-teal-500" />
+                    <MapPin className="mr-2 w-4 h-4 text-teal-500" />
                     {place.name}
                   </CardTitle>
                 </CardHeader>
@@ -647,10 +647,10 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
                       href={place.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-teal-500 hover:underline flex items-center gap-1"
+                      className="flex gap-1 items-center text-teal-500 hover:underline"
                     >
                       Ver en el mapa
-                      <ExternalLink className="h-3 w-3" />
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
                 </CardContent>
@@ -660,12 +660,12 @@ export function AlbumContent({ albumName }: AlbumContentProps) {
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <MapPin className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay lugares</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primer lugar a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primer lugar a este álbum.</p>
               <Button className="mt-4" onClick={() => setIsAddPlaceDialogOpen(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Lugar
               </Button>
             </div>

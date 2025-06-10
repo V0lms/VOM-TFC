@@ -118,7 +118,7 @@ export function CreateAlbumModal({ userEmail: propUserEmail, children }: CreateA
       <DialogTrigger asChild>
         {children || (
           <Button>
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="mr-2 w-4 h-4" />
             Nuevo Viaje
           </Button>
         )}
@@ -148,7 +148,7 @@ export function CreateAlbumModal({ userEmail: propUserEmail, children }: CreateA
             </div>
 
             {error && (
-              <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-200 rounded">
+              <div className="flex gap-2 items-start p-3 bg-red-50 rounded border border-red-200">
                 <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-red-700">
                   <p className="font-medium">Error:</p>
@@ -164,7 +164,7 @@ export function CreateAlbumModal({ userEmail: propUserEmail, children }: CreateA
             <Button type="submit" disabled={isLoading}>
               {isLoading ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                   Creando...
                 </>
               ) : (

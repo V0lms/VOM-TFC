@@ -53,8 +53,8 @@ export function ConfirmDialog({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {children || (
-          <Button variant={variant} size={size} className="flex items-center gap-1">
-            {showIcon && <Trash2 className="h-4 w-4" />}
+          <Button variant={variant} size={size} className="flex gap-1 items-center">
+            {showIcon && <Trash2 className="w-4 h-4" />}
             Eliminar
           </Button>
         )}

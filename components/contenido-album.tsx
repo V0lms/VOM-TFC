@@ -335,8 +335,8 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
   if (cargando) {
     return (
       <div className="flex justify-center items-center p-8">
-        <div className="flex flex-col items-center gap-2">
-          <Loader2 className="h-8 w-8 animate-spin text-teal-500" />
+        <div className="flex flex-col gap-2 items-center">
+          <Loader2 className="w-8 h-8 text-teal-500 animate-spin" />
           <p className="text-sm text-gray-500">Cargando contenido del viaje...</p>
         </div>
       </div>
@@ -345,7 +345,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
 
   if (error) {
     return (
-      <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+      <div className="p-4 bg-red-50 rounded-md border border-red-200">
         <p className="text-red-700">{error}</p>
         <Button onClick={cargarDatos} className="mt-2">
           Intentar de nuevo
@@ -356,7 +356,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
 
   return (
     <Tabs value={pestanaActiva} onValueChange={setPestanaActiva} className="w-full">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex justify-between items-center mb-4">
         <TabsList>
           <TabsTrigger value="fotos" className="relative">
             Fotos
@@ -384,7 +384,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             size="sm"
             onClick={actualizarDatos}
             disabled={actualizando}
-            className="flex items-center gap-1"
+            className="flex gap-1 items-center"
           >
             <RefreshCw className={`h-4 w-4 ${actualizando ? "animate-spin" : ""}`} />
             {actualizando ? "Actualizando..." : "Actualizar"}
@@ -394,7 +394,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             <Dialog open={dialogoFotoAbierto} onOpenChange={setDialogoFotoAbierto}>
               <DialogTrigger asChild>
                 <Button>
-                  <Camera className="h-4 w-4 mr-2" />
+                  <Camera className="mr-2 w-4 h-4" />
                   Añadir Foto
                 </Button>
               </DialogTrigger>
@@ -418,7 +418,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                     <Button type="submit" disabled={enviando}>
                       {enviando ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -435,7 +435,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             <Dialog open={dialogoNotaAbierto} onOpenChange={setDialogoNotaAbierto}>
               <DialogTrigger asChild>
                 <Button>
-                  <PenSquare className="h-4 w-4 mr-2" />
+                  <PenSquare className="mr-2 w-4 h-4" />
                   Añadir Nota
                 </Button>
               </DialogTrigger>
@@ -459,7 +459,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                     <Button type="submit" disabled={enviando}>
                       {enviando ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -476,7 +476,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             <Dialog open={dialogoLugarAbierto} onOpenChange={setDialogoLugarAbierto}>
               <DialogTrigger asChild>
                 <Button>
-                  <MapPin className="h-4 w-4 mr-2" />
+                  <MapPin className="mr-2 w-4 h-4" />
                   Añadir Lugar
                 </Button>
               </DialogTrigger>
@@ -500,7 +500,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                     <Button type="submit" disabled={enviando}>
                       {enviando ? (
                         <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           Añadiendo...
                         </>
                       ) : (
@@ -528,7 +528,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                     className="object-cover"
                     unoptimized={foto.base64?.startsWith("data:")}
                   />
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar foto?"
                       description={`¿Estás seguro de que deseas eliminar la foto "${foto.title}"?`}
@@ -541,7 +541,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                         size="icon"
                         className="h-8 w-8 rounded-full bg-black/50 hover:bg-black/70"
                       >
-                        <Trash2 className="h-4 w-4" />
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
@@ -552,12 +552,12 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <Camera className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <Camera className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay fotos</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primera foto a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primera foto a este álbum.</p>
               <Button className="mt-4" onClick={() => setDialogoFotoAbierto(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Foto
               </Button>
             </div>
@@ -571,7 +571,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             notas.map((nota) => (
               <Card key={nota.id} className="group">
                 <CardHeader className="relative">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar nota?"
                       description={`¿Estás seguro de que deseas eliminar la nota "${nota.title}"?`}
@@ -579,26 +579,26 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                       variant="ghost"
                       size="icon"
                     >
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                        <Trash2 className="h-4 w-4" />
+                      <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
                   <CardTitle>{nota.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{nota.content}</p>
+                  <p className="text-gray-700 whitespace-pre-line dark:text-gray-300">{nota.content}</p>
                 </CardContent>
                 <CardFooter className="text-xs text-gray-500">{new Date(nota.date).toLocaleDateString()}</CardFooter>
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <PenSquare className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <PenSquare className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay notas</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primera nota a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primera nota a este álbum.</p>
               <Button className="mt-4" onClick={() => setDialogoNotaAbierto(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Nota
               </Button>
             </div>
@@ -612,7 +612,7 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
             lugares.map((lugar) => (
               <Card key={lugar.name} className="group">
                 <CardHeader className="relative">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <ConfirmDialog
                       title="¿Eliminar lugar?"
                       description={`¿Estás seguro de que deseas eliminar el lugar "${lugar.name}"?`}
@@ -620,13 +620,13 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                       variant="ghost"
                       size="icon"
                     >
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                        <Trash2 className="h-4 w-4" />
+                      <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </ConfirmDialog>
                   </div>
                   <CardTitle className="flex items-center">
-                    <MapPin className="h-4 w-4 mr-2 text-teal-500" />
+                    <MapPin className="mr-2 w-4 h-4 text-teal-500" />
                     {lugar.name}
                   </CardTitle>
                 </CardHeader>
@@ -636,10 +636,10 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
                       href={lugar.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-teal-500 hover:underline flex items-center gap-1"
+                      className="flex gap-1 items-center text-teal-500 hover:underline"
                     >
                       Ver en el mapa
-                      <ExternalLink className="h-3 w-3" />
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
                 </CardContent>
@@ -649,12 +649,12 @@ export function ContenidoAlbum({ nombreAlbum }: ContenidoAlbumProps) {
               </Card>
             ))
           ) : (
-            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mb-4" />
+            <div className="flex flex-col col-span-full justify-center items-center p-12 text-center">
+              <MapPin className="mb-4 w-12 h-12 text-gray-400" />
               <h3 className="text-lg font-medium">Aún no hay lugares</h3>
-              <p className="text-sm text-gray-500 mt-1">Añade tu primer lugar a este álbum.</p>
+              <p className="mt-1 text-sm text-gray-500">Añade tu primer lugar a este álbum.</p>
               <Button className="mt-4" onClick={() => setDialogoLugarAbierto(true)}>
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="mr-2 w-4 h-4" />
                 Añadir Lugar
               </Button>
             </div>

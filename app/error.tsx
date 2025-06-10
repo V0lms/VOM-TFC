@@ -21,14 +21,14 @@ export default function Error({
   const isDatabaseError = error.message.includes("base de datos") || error.message.includes("database")
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50 dark:bg-gray-900">
+    <div className="flex justify-center items-center p-4 min-h-screen bg-gray-50 dark:bg-gray-900">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2 items-center">
             {isDatabaseError ? (
-              <Database className="h-6 w-6 text-red-500" />
+              <Database className="w-6 h-6 text-red-500" />
             ) : (
-              <AlertTriangle className="h-6 w-6 text-red-500" />
+              <AlertTriangle className="w-6 h-6 text-red-500" />
             )}
             <CardTitle className="text-2xl">Algo salió mal</CardTitle>
           </div>
@@ -47,8 +47,8 @@ export default function Error({
 
           {isDatabaseError && (
             <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-              <p className="font-medium mb-1">Posibles soluciones:</p>
-              <ul className="list-disc pl-5 space-y-1">
+              <p className="mb-1 font-medium">Posibles soluciones:</p>
+              <ul className="pl-5 space-y-1 list-disc">
                 <li>Verifica que las variables de entorno de la base de datos estén configuradas correctamente</li>
                 <li>Asegúrate de que la base de datos esté en funcionamiento</li>
                 <li>Comprueba que las tablas necesarias existan en la base de datos</li>
@@ -56,7 +56,7 @@ export default function Error({
             </div>
           )}
         </CardContent>
-        <CardFooter className="flex justify-end gap-2">
+        <CardFooter className="flex gap-2 justify-end">
           <Button variant="outline" onClick={() => (window.location.href = "/")}>
             Volver al inicio
           </Button>

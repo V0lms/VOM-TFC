@@ -305,24 +305,24 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b bg-white">
-        <Link className="flex items-center justify-center" href="/dashboard">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+      <header className="flex items-center px-4 h-14 bg-white border-b lg:px-6">
+        <Link className="flex justify-center items-center" href="/dashboard">
+          <ArrowLeft className="mr-2 w-4 h-4" />
           <span className="font-medium">Volver al Panel</span>
         </Link>
       </header>
 
       <main className="flex-1 p-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto max-w-6xl">
           {/* Header del álbum */}
-          <div className="bg-white rounded-lg border p-6 mb-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="p-6 mb-6 bg-white rounded-lg border">
+            <div className="flex flex-col gap-4 justify-between md:flex-row md:items-center">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">{viaje.name}</h1>
-                {viaje.description && <p className="text-gray-600 mt-1">{viaje.description}</p>}
+                {viaje.description && <p className="mt-1 text-gray-600">{viaje.description}</p>}
               </div>
               <div className="flex items-center text-sm text-gray-500">
-                <Calendar className="h-4 w-4 mr-1" />
+                <Calendar className="mr-1 w-4 h-4" />
                 <span>Creado el {new Date(viaje.date).toLocaleDateString()}</span>
               </div>
             </div>
@@ -331,8 +331,8 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
           {/* Contenido con pestañas */}
           <div className="bg-white rounded-lg border">
             <Tabs defaultValue="photos" className="w-full">
-              <div className="border-b px-6">
-                <TabsList className="grid w-full max-w-md grid-cols-3 bg-transparent h-auto p-0">
+              <div className="px-6 border-b">
+                <TabsList className="grid grid-cols-3 p-0 w-full max-w-md h-auto bg-transparent">
                   <TabsTrigger
                     value="photos"
                     className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-teal-500 rounded-none py-4 px-6"
@@ -383,7 +383,7 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                           <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? (
                               <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                                 Añadiendo...
                               </>
                             ) : (
@@ -397,28 +397,28 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                 </div>
 
                 {fotos.length > 0 ? (
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                     {fotos.map((foto, index) => (
-                      <div key={foto.id} className="group relative">
+                      <div key={foto.id} className="relative group">
                         <Link href={`/viaje/${encodeURIComponent(viaje.name)}/fotos/${foto.id}`} className="block">
-                          <div className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                            <div className="aspect-square bg-gray-100 rounded mb-2 overflow-hidden">
+                          <div className="p-4 rounded-lg border transition-colors hover:bg-gray-50">
+                            <div className="overflow-hidden mb-2 bg-gray-100 rounded aspect-square">
                               {foto.base64 ? (
                                 <img
                                   src={foto.base64 || "/placeholder.svg"}
                                   alt={foto.title}
-                                  className="w-full h-full object-cover"
+                                  className="object-cover w-full h-full"
                                 />
                               ) : (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <Camera className="h-8 w-8 text-gray-400" />
+                                <div className="flex justify-center items-center w-full h-full">
+                                  <Camera className="w-8 h-8 text-gray-400" />
                                 </div>
                               )}
                             </div>
-                            <p className="text-sm text-center font-medium">{foto.title}</p>
+                            <p className="text-sm font-medium text-center">{foto.title}</p>
                           </div>
                         </Link>
-                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                           <ConfirmDialog
                             title="¿Eliminar foto?"
                             description={`¿Estás seguro de que deseas eliminar la foto "${foto.title}"?`}
@@ -431,7 +431,7 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                               size="icon"
                               className="h-8 w-8 rounded-full bg-black/50 hover:bg-black/70"
                             >
-                              <Trash2 className="h-4 w-4" />
+                              <Trash2 className="w-4 h-4" />
                             </Button>
                           </ConfirmDialog>
                         </div>
@@ -439,11 +439,11 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-gray-500">
-                    <Camera className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <div className="py-12 text-center text-gray-500">
+                    <Camera className="mx-auto mb-4 w-12 h-12 text-gray-300" />
                     <p>No hay fotos en este álbum</p>
                     <Button className="mt-4" onClick={() => setIsAddPhotoDialogOpen(true)}>
-                      <Plus className="h-4 w-4 mr-2" />
+                      <Plus className="mr-2 w-4 h-4" />
                       Añadir Primera Foto
                     </Button>
                   </div>
@@ -479,7 +479,7 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                           <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? (
                               <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                                 Añadiendo...
                               </>
                             ) : (
@@ -495,14 +495,14 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                 {notas.length > 0 ? (
                   <div className="space-y-3">
                     {notas.map((nota, index) => (
-                      <div key={nota.id} className="group relative">
+                      <div key={nota.id} className="relative group">
                         <Link href={`/viaje/${encodeURIComponent(viaje.name)}/notas/${nota.id}`} className="block">
-                          <div className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                          <div className="p-4 rounded-lg border transition-colors hover:bg-gray-50">
                             <p className="font-medium">{nota.title}</p>
-                            <p className="text-sm text-gray-600 mt-1 line-clamp-2">{nota.content}</p>
+                            <p className="mt-1 text-sm text-gray-600 line-clamp-2">{nota.content}</p>
                           </div>
                         </Link>
-                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                           <ConfirmDialog
                             title="¿Eliminar nota?"
                             description={`¿Estás seguro de que deseas eliminar la nota "${nota.title}"?`}
@@ -510,8 +510,8 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                             variant="ghost"
                             size="icon"
                           >
-                            <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                              <Trash2 className="h-4 w-4" />
+                            <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                              <Trash2 className="w-4 h-4" />
                             </Button>
                           </ConfirmDialog>
                         </div>
@@ -519,11 +519,11 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-gray-500">
-                    <PenSquare className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <div className="py-12 text-center text-gray-500">
+                    <PenSquare className="mx-auto mb-4 w-12 h-12 text-gray-300" />
                     <p>No hay notas en este álbum</p>
                     <Button className="mt-4" onClick={() => setIsAddNoteDialogOpen(true)}>
-                      <Plus className="h-4 w-4 mr-2" />
+                      <Plus className="mr-2 w-4 h-4" />
                       Añadir Primera Nota
                     </Button>
                   </div>
@@ -559,7 +559,7 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                           <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? (
                               <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                                 Añadiendo...
                               </>
                             ) : (
@@ -575,28 +575,28 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                 {lugares.length > 0 ? (
                   <div className="space-y-3">
                     {lugares.map((lugar, index) => (
-                      <div key={lugar.name} className="group relative">
+                      <div key={lugar.name} className="relative group">
                         <Link
                           href={`/viaje/${encodeURIComponent(viaje.name)}/lugares/${encodeURIComponent(lugar.name)}`}
                           className="block"
                         >
-                          <div className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                          <div className="p-4 rounded-lg border transition-colors hover:bg-gray-50">
                             <p className="font-medium">{lugar.name}</p>
                             {lugar.link && (
                               <a
                                 href={lugar.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-teal-500 hover:underline flex items-center gap-1 mt-1"
+                                className="flex gap-1 items-center mt-1 text-teal-500 hover:underline"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 Ver en el mapa
-                                <ExternalLink className="h-3 w-3" />
+                                <ExternalLink className="w-3 h-3" />
                               </a>
                             )}
                           </div>
                         </Link>
-                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
                           <ConfirmDialog
                             title="¿Eliminar lugar?"
                             description={`¿Estás seguro de que deseas eliminar el lugar "${lugar.name}"?`}
@@ -604,8 +604,8 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                             variant="ghost"
                             size="icon"
                           >
-                            <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-red-500">
-                              <Trash2 className="h-4 w-4" />
+                            <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-red-500">
+                              <Trash2 className="w-4 h-4" />
                             </Button>
                           </ConfirmDialog>
                         </div>
@@ -613,11 +613,11 @@ export function ViajeDetailClient({ viaje, initialFotos, initialNotas, initialLu
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-gray-500">
-                    <MapPin className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <div className="py-12 text-center text-gray-500">
+                    <MapPin className="mx-auto mb-4 w-12 h-12 text-gray-300" />
                     <p>No hay lugares en este álbum</p>
                     <Button className="mt-4" onClick={() => setIsAddPlaceDialogOpen(true)}>
-                      <Plus className="h-4 w-4 mr-2" />
+                      <Plus className="mr-2 w-4 h-4" />
                       Añadir Primer Lugar
                     </Button>
                   </div>

@@ -63,11 +63,11 @@ export function EditPlaceForm({ place, albumName }: EditPlaceFormProps) {
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid gap-6 md:grid-cols-2">
       {/* Mapa placeholder */}
-      <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
+      <div className="flex justify-center items-center bg-gray-100 rounded-lg aspect-square">
         <div className="text-center text-gray-400">
-          <div className="w-16 h-16 mx-auto mb-2 bg-gray-200 rounded"></div>
+          <div className="mx-auto mb-2 w-16 h-16 bg-gray-200 rounded"></div>
           <p>Map</p>
         </div>
       </div>
@@ -97,7 +97,7 @@ export function EditPlaceForm({ place, albumName }: EditPlaceFormProps) {
             disabled={isDeleting}
             className="text-red-600 border-red-200 hover:bg-red-50"
           >
-            <Trash2 className="h-4 w-4 mr-2" />
+            <Trash2 className="mr-2 w-4 h-4" />
             Delete
           </Button>
         </div>

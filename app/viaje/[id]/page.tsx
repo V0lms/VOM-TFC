@@ -73,20 +73,20 @@ export default async function ViajeDetailPage({
     // Mostrar un mensaje de error en lugar de redirigir
     return (
       <div className="flex flex-col min-h-screen bg-gray-50">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b bg-white">
-          <Link className="flex items-center justify-center" href="/dashboard">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+        <header className="flex items-center px-4 h-14 bg-white border-b lg:px-6">
+          <Link className="flex justify-center items-center" href="/dashboard">
+            <ArrowLeft className="mr-2 w-4 h-4" />
             <span className="font-medium">Volver al Panel</span>
           </Link>
         </header>
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center max-w-md p-6 bg-white rounded-lg border">
-            <h1 className="text-2xl font-bold mb-4">Error al cargar el viaje</h1>
-            <p className="text-gray-600 mb-6">
+        <main className="flex flex-1 justify-center items-center">
+          <div className="p-6 max-w-md text-center bg-white rounded-lg border">
+            <h1 className="mb-4 text-2xl font-bold">Error al cargar el viaje</h1>
+            <p className="mb-6 text-gray-600">
               Ha ocurrido un error al cargar los datos del viaje. Por favor, inténtalo de nuevo.
             </p>
             <Link href="/dashboard">
-              <button className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">
+              <button className="py-2 px-4 text-white bg-teal-500 rounded hover:bg-teal-600">
                 Volver al Dashboard
               </button>
             </Link>

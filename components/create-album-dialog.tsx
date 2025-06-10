@@ -77,7 +77,7 @@ export function CreateAlbumDialog({
       <DialogTrigger asChild>
         {children || (
           <Button>
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="mr-2 w-4 h-4" />
             Nuevo Viaje
           </Button>
         )}

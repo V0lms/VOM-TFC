@@ -6,11 +6,11 @@ import { DEMO_MODE } from "@/lib/db"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="/">
-          <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
+      <header className="px-4 lg:px-6 h-[10vh] flex items-center border-b">
+        <Link className="flex justify-center items-center" href="/">
+          <span className="text-xl font-bold">Nube viajes - tfc VOM</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="flex gap-4 ml-auto sm:gap-6">
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/login">
             Iniciar Sesión
           </Link>
@@ -20,7 +20,7 @@ export default function Home() {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="h-[50vh] py-12 md:py-24 lg:py-32 xl:py-48">
+        <section className="h-[60vh] py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -35,20 +35,20 @@ export default function Home() {
                 <Link href="/register">
                   <Button className="px-8">
                     Comenzar
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
               </div>
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section className="w-full h-[20vh] py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-3 items-start">
+            <div className="grid gap-6 items-start lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="p-4 bg-white dark:bg-gray-950 rounded-full">
+                <div className="p-4 bg-white rounded-full dark:bg-gray-950">
                   <svg
-                    className="h-6 w-6 text-teal-500 dark:text-teal-400"
+                    className="w-6 h-6 text-teal-500 dark:text-teal-400"
                     fill="none"
                     height="24"
                     stroke="currentColor"
@@ -68,9 +68,9 @@ export default function Home() {
                 <p className="text-gray-500 dark:text-gray-400">Captura momentos especiales de tus viajes.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="p-4 bg-white dark:bg-gray-950 rounded-full">
+                <div className="p-4 bg-white rounded-full dark:bg-gray-950">
                   <svg
-                    className="h-6 w-6 text-teal-500 dark:text-teal-400"
+                    className="w-6 h-6 text-teal-500 dark:text-teal-400"
                     fill="none"
                     height="24"
                     stroke="currentColor"
@@ -89,9 +89,9 @@ export default function Home() {
                 <p className="text-gray-500 dark:text-gray-400">Escribe anécdotas y experiencias de tus aventuras.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="p-4 bg-white dark:bg-gray-950 rounded-full">
+                <div className="p-4 bg-white rounded-full dark:bg-gray-950">
                   <svg
-                    className="h-6 w-6 text-teal-500 dark:text-teal-400"
+                    className="w-6 h-6 text-teal-500 dark:text-teal-400"
                     fill="none"
                     height="24"
                     stroke="currentColor"
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+      <footer className="flex flex-col h-[10vh] gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
           © 2025 Nube viajes - tfc VOM. Todos los derechos reservados.
         </p>

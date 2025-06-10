@@ -18,22 +18,22 @@ export default function Error({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="/dashboard">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+      <header className="flex items-center px-4 h-14 border-b lg:px-6">
+        <Link className="flex justify-center items-center" href="/dashboard">
+          <ArrowLeft className="mr-2 w-4 h-4" />
           <span className="font-medium">Volver al Panel</span>
         </Link>
       </header>
-      <main className="flex-1 p-4 md:p-6 flex items-center justify-center">
-        <div className="max-w-md w-full text-center">
+      <main className="flex flex-1 justify-center items-center p-4 md:p-6">
+        <div className="w-full max-w-md text-center">
           <div className="flex justify-center mb-4">
-            <Database className="h-12 w-12 text-red-500" />
+            <Database className="w-12 h-12 text-red-500" />
           </div>
-          <h2 className="text-2xl font-bold mb-2">Error al cargar el viaje</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <h2 className="mb-2 text-2xl font-bold">Error al cargar el viaje</h2>
+          <p className="mb-6 text-gray-600 dark:text-gray-400">
             {error.message || "No se pudo cargar la información del viaje. Por favor, inténtalo de nuevo."}
           </p>
-          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+          <div className="flex flex-col gap-2 justify-center sm:flex-row">
             <Button variant="outline" asChild>
               <Link href="/dashboard">Volver al panel</Link>
             </Button>

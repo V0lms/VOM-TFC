@@ -56,29 +56,29 @@ export function CreateAlbumFallback({ viajeName, userEmail }: CreateAlbumFallbac
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b bg-white">
-        <Link className="flex items-center justify-center" href="/dashboard">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+      <header className="flex items-center px-4 h-14 bg-white border-b lg:px-6">
+        <Link className="flex justify-center items-center" href="/dashboard">
+          <ArrowLeft className="mr-2 w-4 h-4" />
           <span className="font-medium">Volver al Panel</span>
         </Link>
       </header>
-      <main className="flex-1 flex items-center justify-center">
-        <div className="text-center max-w-md p-6 bg-white rounded-lg border">
-          <AlertCircle className="h-12 w-12 text-amber-500 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold mb-4">Álbum no encontrado</h1>
-          <p className="text-gray-600 mb-6">
+      <main className="flex flex-1 justify-center items-center">
+        <div className="p-6 max-w-md text-center bg-white rounded-lg border">
+          <AlertCircle className="mx-auto mb-4 w-12 h-12 text-amber-500" />
+          <h1 className="mb-4 text-2xl font-bold">Álbum no encontrado</h1>
+          <p className="mb-6 text-gray-600">
             El álbum <strong>"{viajeName}"</strong> no existe. ¿Te gustaría crearlo?
           </p>
           <div className="flex flex-col gap-3">
             <Button onClick={handleCreateAlbum} disabled={isCreating}>
               {isCreating ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                   Creando álbum...
                 </>
               ) : (
                 <>
-                  <Plus className="mr-2 h-4 w-4" />
+                  <Plus className="mr-2 w-4 h-4" />
                   Crear álbum "{viajeName}"
                 </>
               )}

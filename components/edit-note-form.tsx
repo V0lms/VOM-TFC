@@ -108,18 +108,18 @@ export function EditNoteForm({ note, albumName }: EditNoteFormProps) {
         </div>
       </div>
 
-      <div className="flex justify-end gap-3">
+      <div className="flex gap-3 justify-end">
         <Button
           variant="outline"
           onClick={handleDelete}
           disabled={isDeleting}
           className="text-red-600 border-red-200 hover:bg-red-50"
         >
-          <Trash2 className="h-4 w-4 mr-2" />
+          <Trash2 className="mr-2 w-4 h-4" />
           Delete
         </Button>
         <Button onClick={handleSave} disabled={isSaving}>
-          <Save className="h-4 w-4 mr-2" />
+          <Save className="mr-2 w-4 h-4" />
           Save
         </Button>
       </div>

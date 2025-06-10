@@ -121,13 +121,13 @@ Debug Info:
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="/dashboard">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+      <header className="flex items-center px-4 h-14 border-b lg:px-6">
+        <Link className="flex justify-center items-center" href="/dashboard">
+          <ArrowLeft className="mr-2 w-4 h-4" />
           <span className="font-medium">Volver al Panel</span>
         </Link>
       </header>
-      <main className="flex-1 p-4 md:p-6 flex items-center justify-center">
+      <main className="flex flex-1 justify-center items-center p-4 md:p-6">
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle>Crear Nuevo Viaje</CardTitle>
@@ -146,13 +146,13 @@ Debug Info:
 
               {/* Mostrar información de debug en desarrollo */}
               {process.env.NODE_ENV === "development" && debugInfo && (
-                <div className="text-xs bg-gray-100 p-2 rounded">
+                <div className="p-2 text-xs bg-gray-100 rounded">
                   <pre>{debugInfo}</pre>
                 </div>
               )}
 
               {error && (
-                <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-200 rounded">
+                <div className="flex gap-2 items-start p-3 bg-red-50 rounded border border-red-200">
                   <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-red-700">
                     <p className="font-medium">Error:</p>
@@ -171,7 +171,7 @@ Debug Info:
               <Button type="submit" disabled={isLoading} className="w-full">
                 {isLoading ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                     Creando...
                   </>
                 ) : (

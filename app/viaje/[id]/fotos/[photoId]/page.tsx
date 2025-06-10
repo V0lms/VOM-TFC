@@ -36,34 +36,34 @@ export default async function PhotoDetailPage({
 
     return (
       <div className="flex flex-col min-h-screen bg-gray-50">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b bg-white">
-          <Link className="flex items-center justify-center" href={`/viaje/${encodeURIComponent(viajeName)}`}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
+        <header className="flex items-center px-4 h-14 bg-white border-b lg:px-6">
+          <Link className="flex justify-center items-center" href={`/viaje/${encodeURIComponent(viajeName)}`}>
+            <ArrowLeft className="mr-2 w-4 h-4" />
             <span className="font-medium">Volver al Álbum</span>
           </Link>
         </header>
 
         <main className="flex-1 p-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg border p-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="p-6 bg-white rounded-lg border">
               <div className="flex justify-between items-start mb-6">
                 <h1 className="text-2xl font-bold">Photo 1</h1>
                 <DeletePhotoButton photoId={foto.id} albumName={viajeName} />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 {/* Imagen */}
-                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <div className="overflow-hidden bg-gray-100 rounded-lg aspect-square">
                   {foto.base64 ? (
                     <img
                       src={foto.base64 || "/placeholder.svg"}
                       alt={foto.title}
-                      className="w-full h-full object-cover"
+                      className="object-cover w-full h-full"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 text-center">
+                    <div className="flex justify-center items-center w-full h-full text-center text-gray-400">
                       <div>
-                        <Camera className="h-16 w-16 mx-auto mb-2" />
+                        <Camera className="mx-auto mb-2 w-16 h-16" />
                         <p>Imagen no disponible</p>
                       </div>
                     </div>
@@ -73,10 +73,10 @@ export default async function PhotoDetailPage({
                 {/* Detalles */}
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{foto.title}</h3>
+                    <h3 className="mb-2 font-semibold text-gray-900">{foto.title}</h3>
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-2" />
+                        <Calendar className="mr-2 w-4 h-4" />
                         <span>Upload: {new Date(foto.date).toLocaleDateString()}</span>
                       </div>
                       <div>

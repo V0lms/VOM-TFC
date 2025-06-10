@@ -36,16 +36,16 @@ export default async function NoteDetailPage({
 
     return (
       <div className="flex flex-col min-h-screen bg-gray-50">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b bg-white">
-          <Link className="flex items-center justify-center" href={`/viaje/${encodeURIComponent(viajeName)}`}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
+        <header className="flex items-center px-4 h-14 bg-white border-b lg:px-6">
+          <Link className="flex justify-center items-center" href={`/viaje/${encodeURIComponent(viajeName)}`}>
+            <ArrowLeft className="mr-2 w-4 h-4" />
             <span className="font-medium">Volver al Álbum</span>
           </Link>
         </header>
 
         <main className="flex-1 p-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg border p-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="p-6 bg-white rounded-lg border">
               <div className="mb-6">
                 <h1 className="text-2xl font-bold">Note 1</h1>
               </div>
