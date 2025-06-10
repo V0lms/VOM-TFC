@@ -4,63 +4,6 @@ import { ArrowRight, Database, ExternalLink } from "lucide-react"
 import { DEMO_MODE } from "@/lib/db"
 
 export default function Home() {
-  // Si no hay base de datos configurada, mostrar mensaje de configuración
-  if (DEMO_MODE) {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <header className="px-4 lg:px-6 h-14 flex items-center border-b">
-          <Link className="flex items-center justify-center" href="/">
-            <span className="font-bold text-xl">Nube viajes - tfc VOM</span>
-          </Link>
-        </header>
-        <main className="flex-1">
-          <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-            <div className="container px-4 md:px-6">
-              <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <Database className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                    Configuración Requerida
-                  </h1>
-                  <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                    Para usar Nube viajes, necesitas configurar una base de datos. Te recomendamos usar Neon para una
-                    configuración rápida y gratuita.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-blue-50 border border-blue-200 rounded p-4 text-left max-w-md">
-                    <h3 className="font-medium text-blue-900 mb-2">Pasos para configurar:</h3>
-                    <ol className="text-sm text-blue-800 space-y-1 list-decimal list-inside">
-                      <li>Crea una cuenta en Neon (gratis)</li>
-                      <li>Crea una nueva base de datos</li>
-                      <li>Copia la URL de conexión</li>
-                      <li>Configúrala como variable de entorno DATABASE_URL</li>
-                      <li>Ejecuta los scripts de migración</li>
-                    </ol>
-                  </div>
-                  <a
-                    href="https://neon.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
-                  >
-                    Ir a Neon
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-        <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            © 2025 Nube viajes - tfc VOM. Todos los derechos reservados.
-          </p>
-        </footer>
-      </div>
-    )
-  }
-
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center border-b">
@@ -77,7 +20,7 @@ export default function Home() {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+        <section className="h-[90vh] py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">

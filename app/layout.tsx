@@ -11,8 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Nube viajes - tfc VOM",
-  description: "Documenta tus viajes y guarda tus recuerdos",
-    generator: 'v0.dev'
+  description: "Documenta tus viajes y guarda tus recuerdos"
 }
 
 export default function RootLayout({
